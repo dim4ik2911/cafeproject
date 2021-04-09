@@ -1,0 +1,27 @@
+main {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+main > .gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+}
+
+main > .gallery > img {
+  width: 30rem;
+  height: 20rem;
+  padding: 1rem;
+  border: 1px solid #eefff1;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s;
+}
+
+main > .gallery > img:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  cursor: pointer;
+}
