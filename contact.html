@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="contact.css">
         <title>Vegetarian Pop-up</title>
     </head>
     <body>
@@ -32,5 +33,31 @@
             <h2>Best vegetarian pop-up in London</h2>
             <p>Contact us</p>
         </header>
+
+        <main>
+            <div class="contact-form">
+
+                <label for="email">Email: </label>
+                <input type="text" name="email" id="email">
+
+                <label for="fullName">Full name: </label>
+                <input type="text" name="fullName" id="fullName">
+
+                <label for="feedbackType">Feedback type: </label>
+                <select name="feedbackType" id="feedbackType">
+                    <option value="review">Review</option>
+                    <option value="complaint">Complaint</option>
+                    <option value="event">Book event</option>
+                </select>
+
+                <label for="comment">Comment: </label>
+                <textarea name="comment" id="comment" rows="3" cols="20">
+Leave your comment here...
+                </textarea>
+
+                <button>Clear</button>
+                <button>Submit</button>
+            </div>
+        </main>
     </body>
 </html>
