@@ -13,7 +13,7 @@
                     <a href="index.html">Home</a>
                 </li>
                 <li>
-                    <a href="events.html">Events</a>
+                    <a href="events.html">Our events</a>
                 </li>
                 <li>
                     <a href="private.html">Private dining</a>
@@ -35,13 +35,13 @@
         </header>
 
         <main>
-            <div class="contact-form">
+            <form class="contact-form" onsubmit="return submitMessage(event);">
 
                 <label for="email">Email: </label>
-                <input type="text" name="email" id="email">
+                <input type="email" name="email" id="email" required>
 
                 <label for="fullName">Full name: </label>
-                <input type="text" name="fullName" id="fullName">
+                <input type="text" name="fullName" id="fullName" required>
 
                 <label for="feedbackType">Feedback type: </label>
                 <select name="feedbackType" id="feedbackType">
@@ -51,13 +51,44 @@
                 </select>
 
                 <label for="comment">Comment: </label>
-                <textarea name="comment" id="comment" rows="3" cols="20">
+                <textarea name="comment" id="comment" rows="3" cols="20" required>
 Leave your comment here...
                 </textarea>
 
                 <button>Clear</button>
-                <button>Submit</button>
-            </div>
+                <input type="submit" value="Submit" class="submit">
+            </form>
         </main>
+
+        <script>
+            function submitMessage(event) {
+                event.preventDefault();
+                
+                const email = document.getElementById("email").value;
+                const fullName = document.getElementById("fullName").value;
+                const feedbackType = document.getElementById("feedbackType").value;
+                const comment = document.getElementById("comment").value;
+
+                const messageObject = {
+                    email, fullName, feedbackType, comment
+                };
+
+                let currentMessages = [];
+
+                if (window.sessionStorage.getItem("messages")) {
+                    currentMessages = 
+                    JSON.parse(
+                        window.sessionStorage.getItem("messages")
+                    );
+                }
+                
+                currentMessages.push(messageObject);
+                
+                window.sessionStorage.setItem(
+                    "messages",
+                    JSON.stringify(currentMessages)
+                );
+            }
+        </script>
     </body>
 </html>
