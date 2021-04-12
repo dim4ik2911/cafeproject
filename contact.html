@@ -60,7 +60,28 @@ Leave your comment here...
             </form>
         </main>
 
+        <footer>
+            <div class="footer-title">
+                <h2>Contact messages</h2>
+                <button onclick="deleteMessages();">Clear messages</button>
+            </div>
+            <div class="form-wrapper">
+                <dl id="currentMessages">
+                    
+                </dl>
+            </div>
+        </footer>
+
         <script>
+
+            function deleteMessages() {
+                if (window.sessionStorage.getItem("messages")) {
+                    window.sessionStorage.removeItem("messages");
+                }
+
+                renderMessages();
+            }
+
             function submitMessage(event) {
                 event.preventDefault();
                 
@@ -88,7 +109,37 @@ Leave your comment here...
                     "messages",
                     JSON.stringify(currentMessages)
                 );
+                
+                renderMessages();
+                // if we want messages to submit straight away
             }
+
+            function renderMessages() {
+
+                let currentMessages = [];
+
+                if (window.sessionStorage.getItem("messages")) {
+                    currentMessages = 
+                    JSON.parse(
+                        window.sessionStorage.getItem("messages")
+                    );
+                }
+
+                let listItems = [];
+                for (let i = 0; i < currentMessages.length; i++) {
+                    let listItem = "";
+                    const currentMessage = currentMessages[i];
+                    listItem += `<dt>${currentMessage.fullName} - ${currentMessage.email}</dt>`;
+                    listItem += `<dd>${currentMessage.feedbackType}: ${currentMessage.comment}</dd>`;
+                    listItem += `<br>`;
+                    listItems.push(listItem);
+                }
+
+                let descList = document.getElementById("currentMessages");
+                descList.innerHTML = listItems.join("");
+            }
+
+            // renderMessages(); render messages after reload
         </script>
     </body>
 </html>

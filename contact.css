@@ -11,8 +11,8 @@ main > .contact-form {
   font-size: 1.8rem;
 }
 
-main > .contact-form > button,
-main > .contact-form > .submit {
+button,
+.submit {
   width: 7rem;
   height: 3rem;
   border-radius: 2rem;
@@ -22,8 +22,27 @@ main > .contact-form > .submit {
   outline: none;
 }
 
-main > .contact-form > button:active,
-main > .contact-form > .submit:active {
+button:active,
+.submit:active {
   color: #195522;
   border: 3px solid #195522;
+}
+
+footer {
+  margin-top: 5.5rem;
+}
+
+.footer-title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.footer-title > button {
+  width: 12rem;
 }
