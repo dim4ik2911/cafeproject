@@ -42,6 +42,10 @@ footer {
   justify-content: center;
   font-size: 1.6rem;
 }
+/* to have a margin for dd element*/
+dd {
+  margin-inline-start: 40px;
+}
 
 .footer-title > button {
   width: 12rem;

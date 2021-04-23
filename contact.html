@@ -35,7 +35,7 @@
         </header>
 
         <main>
-            <form class="contact-form" onsubmit="return submitMessage(event);">
+            <form class="contact-form" id="contact-form" onsubmit="return submitMessage(event);">
 
                 <label for="email">Email: </label>
                 <input type="email" name="email" id="email" required>
@@ -51,11 +51,10 @@
                 </select>
 
                 <label for="comment">Comment: </label>
-                <textarea name="comment" id="comment" rows="3" cols="20" required>
-Leave your comment here...
-                </textarea>
-
-                <button>Clear</button>
+                <textarea name="comment" id="comment" rows="3" cols="20" required placeholder="Leave your comment here..."></textarea>
+                <!-- placeholder is added -->
+                <button type="reset">Clear</button>
+                <!-- reset type helps to reset a form -->
                 <input type="submit" value="Submit" class="submit">
             </form>
         </main>
@@ -139,7 +138,8 @@ Leave your comment here...
                 descList.innerHTML = listItems.join("");
             }
 
-            // renderMessages(); render messages after reload
+            // renderMessages(); 
+            // render messages after reload
         </script>
     </body>
 </html>
